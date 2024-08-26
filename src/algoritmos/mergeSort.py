@@ -1,5 +1,4 @@
 import numpy as np  # Biblioteca para trablahar com vetores
-from src.utils import swap
 from src.utils.execution_time import measure_execution_time
 
 
