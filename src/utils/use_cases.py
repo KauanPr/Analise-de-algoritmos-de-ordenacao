@@ -21,8 +21,16 @@ class UseCases:
             self.list_of_use_cases.append(use_case)
 
     @staticmethod  # para poder testar ou gerar as arrays de forma direta
-    def generate_array(size_tam: int):
-        array = np.random.randint(size=size_tam, low=0, high=size_tam ** 2)
+    def generate_array(size_array: int):
+
+        max_value = size_array ** 2
+
+        # tratamento caso o max_value ultrapasse o valor maximo suportado por int32
+        if max_value > 2147483647:
+            max_value = 2147483647
+
+
+        array = np.random.randint(size=size_array, low=0, high=max_value)
         return array
 
     def show_use_cases(self):
