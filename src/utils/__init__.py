@@ -1,4 +1,5 @@
 from .execution_time import measure_execution_time
 from .use_cases import UseCases
+from .Heap import max_heapify
 
-__all__ = ["measure_execution_time", "UseCases"]
+__all__ = ["measure_execution_time", "UseCases", "max_heapify"]
