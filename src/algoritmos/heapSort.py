@@ -5,7 +5,6 @@ from src.utils.Heap import max_heapify
 @measure_execution_time
 def heap_sort(array: np.array):
 
-    array = np.copy(array)
     size_heap = len(array)
 
     # contruir a max_heap

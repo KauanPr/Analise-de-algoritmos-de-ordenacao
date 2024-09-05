@@ -5,8 +5,6 @@ from src.utils.execution_time import measure_execution_time
 @measure_execution_time
 def merge_sort(array: np.array):
 
-    array = np.copy(array)
-
     if len(array) <= 1:
         return array
 
