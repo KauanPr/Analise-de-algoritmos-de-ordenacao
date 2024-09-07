@@ -7,18 +7,19 @@ if __name__ == "__main__":
     #inc = int(input("inc: "))
     #fim = int(input("fim: "))
     #stp = int(input("stp: "))
-    inc = 99999
+    inc = 9999
     fim = 20000000
     stp = 100000000
     use_cases = UseCases(inc, fim, stp)
     test_array = use_cases.list_of_use_cases[0]['array']
 
-    bubble = bubble_sort(np.copy(test_array))
-    insert = insertion_sort(np.copy(test_array))
+    #bubble = bubble_sort(np.copy(test_array))
+    #insert = insertion_sort(np.copy(test_array))
     merge = merge_sort(np.copy(test_array))
     heap = heap_sort(np.copy(test_array))
     quick = quick_sort(np.copy(test_array))
-    print(quick[:5], quick[-5:])
+    counting = counting_sort(np.copy(test_array))
+    print(counting[:5], counting[-5:])
     print(test_array[:5], test_array[-5:])
 
 #
