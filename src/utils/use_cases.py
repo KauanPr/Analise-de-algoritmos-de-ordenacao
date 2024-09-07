@@ -23,7 +23,7 @@ class UseCases:
     @staticmethod  # para poder testar ou gerar as arrays de forma direta
     def generate_array(size_array: int):
 
-        max_value = size_array ** 2
+        max_value = size_array *2
 
         # tratamento caso o max_value ultrapasse o valor maximo suportado por int32
         if max_value > 2147483647:
