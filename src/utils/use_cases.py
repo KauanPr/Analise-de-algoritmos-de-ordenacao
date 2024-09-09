@@ -6,10 +6,11 @@ from typing import List, Dict, Any
 
 class UseCases:
 
-    def __init__(self, inc: int, fim: int, stp: int):
+    def __init__(self, inc: int, fim: int, stp: int, rpt: int = 10):
         self.inc = inc
         self.fim = fim
         self.stp = stp
+        self.rpt = rpt
         self.list_of_use_cases = dict() # local para guardar todos os casos de uso
         self.generate_use_cases()
 
@@ -19,7 +20,7 @@ class UseCases:
 
             # array aleatorio
             random_list = []
-            for i in range(10):
+            for i in range(self.rpt):
                 array = self.generate_random_array(n)
                 random_list.append(array)
 
@@ -50,10 +51,10 @@ class UseCases:
 
             # Colocando os arrays em um dicionario para facilitar o acesso
             use_cases = {
-                "random": random_list,
-                "reverse": reverse_array,
-                "sorted": sorted_array,
-                "nearly_sorted": nearly_array
+                "random": {'array': random_list},
+                "reverse": {'array': reverse_array},
+                "sorted": {'array': sorted_array},
+                "nearly_sorted": {'array': nearly_array}
             }
             self.list_of_use_cases[str(n)] = use_cases
 
