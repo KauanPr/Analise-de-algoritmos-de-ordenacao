@@ -4,7 +4,7 @@
 import numpy as np
 
 from utils.use_cases import UseCases
-from application.applicationOfOrdenances import apply_ordeinances
+from application.applicationOfOrdenances import apply_ordinances
 from algoritmos import *
 
 if __name__ == "__main__":
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     use_cases = UseCases(inc, fim, stp)
     use_cases.show_use_cases()
     print(use_cases.list_of_use_cases)
-    app = apply_ordeinances(use_cases.list_of_use_cases)
+    app = apply_ordinances(use_cases.list_of_use_cases)
     app.execute()
     print("teste de acesso a chave: " + str(use_cases.list_of_use_cases[str(inc)]['random']['bubble_time']))
     print('*' * 30)

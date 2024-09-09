@@ -5,7 +5,7 @@ from src.utils.sortValidator import is_sorted
 import statistics
 
 
-class apply_ordeinances:
+class apply_ordinances:
 
     def __init__(self, use_cases):
         self.use_cases = use_cases
@@ -25,35 +25,27 @@ class apply_ordeinances:
             "quick_sort": [],
             "counting_sort": [],
         }
-        for i_array, array in enumerate(self.use_cases[i]['random']['array']):
+
+        # Lista para executar as funções em loops para evitar blocos grandes de chamadas
+        algorithms = ['bubble', 'insertion', 'merge', 'heap', 'quick', 'counting']
+        funcion_algorithms = [bubble_sort, insertion_sort, merge_sort, heap_sort, quick_sort, counting_sort]
+
+        for i_array, array in enumerate(self.use_cases[i]['random']['array']):  # Percorrer a lista de arrays aleatorios
             ordered_arrays = []
 
             # Executar ordenações, e adicionar os arrays ordenados em uma lista para futura verificaçao
-            ordered_arrays.append(bubble_sort(np.copy(array)))
-            ordered_arrays.append(insertion_sort(np.copy(array)))
-            ordered_arrays.append(merge_sort(np.copy(array)))
-            ordered_arrays.append(heap_sort(np.copy(array)))
-            ordered_arrays.append(quick_sort(np.copy(array)))
-            ordered_arrays.append(counting_sort(np.copy(array)))
+            for func in funcion_algorithms:
+                ordered_arrays.append(func(np.copy(array)))
 
             # verificar se o array foi ordenado
-            for array in ordered_arrays:
-                if not is_sorted(array):
+            for array_sorted in ordered_arrays:
+                if not is_sorted(array_sorted):
                     print("\nErro: vetor não foi ordenado\n")
 
-            #
-            algorithms_time['bubble_sort'].append(bubble_sort.execution_time[-1])
-            algorithms_time['insertion_sort'].append(insertion_sort.execution_time[-1])
-            algorithms_time['merge_sort'].append(merge_sort.execution_time[-1])
-            algorithms_time['heap_sort'].append(heap_sort.execution_time[-1])
-            algorithms_time['quick_sort'].append(quick_sort.execution_time[-1])
-            algorithms_time['counting_sort'].append(counting_sort.execution_time[-1])
+            # adiciona os tempos de execução nos dicionarios
+            for algorithm_name, func in zip(algorithms, funcion_algorithms):
+                algorithms_time[str(algorithm_name + '_sort')].append(func.execution_time[-1])
 
-        # Fazer média do bubble
-        self.use_cases[i]['random']['bubble_time'] = statistics.mean(algorithms_time['bubble_sort'])
-        self.use_cases[i]['random']['insertion_time'] = statistics.mean(algorithms_time['insertion_sort'])
-        self.use_cases[i]['random']['merge_time'] = statistics.mean(algorithms_time['merge_sort'])
-        self.use_cases[i]['random']['heap_time'] = statistics.mean(algorithms_time['heap_sort'])
-        self.use_cases[i]['random']['quick_time'] = statistics.mean(algorithms_time['quick_sort'])
-        self.use_cases[i]['random']['counting_time'] = statistics.mean(algorithms_time['counting_sort'])
-
+        #   realizar e armazenar a média de todos os algoritmos acima
+        for algorithm_name in algorithms:
+            self.use_cases[i]['random'][str(algorithm_name + '_time')] = statistics.mean(algorithms_time[str(algorithm_name + '_sort')])

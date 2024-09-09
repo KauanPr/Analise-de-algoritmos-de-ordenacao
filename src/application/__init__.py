@@ -1,3 +1,3 @@
-from .applicationOfOrdenances import apply_ordeinances
+from .applicationOfOrdenances import apply_ordinances
 
-__all__ = ["apply_ordeinances"]
+__all__ = ["apply_ordinances"]
