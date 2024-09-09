@@ -19,22 +19,23 @@ class UseCases:
         for n in range(self.inc, self.fim, self.stp):
 
             # array aleatorio
-            random_list = []
+            random_lists = []
             for i in range(self.rpt):
                 array = self.generate_random_array(n)
-                random_list.append(array)
+                random_lists.append(array)
 
             # array reverse
-            reverse_array = []
+            reverse_arrays = [[]]
             for i in range(n):
-                reverse_array.append(n - i)
+                reverse_arrays[0].append(n - i)
 
             # Sorted array
-            sorted_array = []
+            sorted_arrays = [[]]
             for i in range(n):
-                sorted_array.append(i)
+                sorted_arrays[0].append(i)
 
             # Nearly array
+            nearly_arrays = []
             nearly_array = self.generate_random_array(n)    # gerar random array primeiro
             nearly_array.sort()                             # ordenar vetor
             amount_to_shuffle = int(n * 0.1)                # porçao qe vai ser embaralhada
@@ -48,13 +49,14 @@ class UseCases:
 
             for i, index in enumerate(index_to_shuffle):       # Colocando os valores embaralhas de volta ao vetor
                 nearly_array[index] = shuffle_values[i]
+            nearly_arrays.append( nearly_array)
 
             # Colocando os arrays em um dicionario para facilitar o acesso
             use_cases = {
-                "random": {'array': random_list},
-                "reverse": {'array': reverse_array},
-                "sorted": {'array': sorted_array},
-                "nearly_sorted": {'array': nearly_array}
+                "random": {'array': random_lists},
+                "reverse": {'array': reverse_arrays},
+                "sorted": {'array': sorted_arrays},
+                "nearly_sorted": {'array': nearly_arrays}
             }
             self.list_of_use_cases[str(n)] = use_cases
 
