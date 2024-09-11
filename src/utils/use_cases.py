@@ -16,7 +16,7 @@ class UseCases:
 
     def generate_use_cases(self):
 
-        for n in range(self.inc, self.fim, self.stp):
+        for n in range(self.inc, self.fim + 1, self.stp): # "+ 1" para incluir o fim
 
             # array aleatorio
             random_lists = []
