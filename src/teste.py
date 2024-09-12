@@ -14,9 +14,9 @@ if __name__ == "__main__":
     #Aumente o limite de chamadas recursivas
     sys.setrecursionlimit(1000000)
 
-    inc = 1000
-    fim = 10000
-    stp = 1000
+    inc = 100
+    fim = 1000
+    stp = 500
     use_cases = UseCases(inc, fim, stp)
     #use_cases.show_use_cases()
     app = apply_ordinances(use_cases.list_of_use_cases)

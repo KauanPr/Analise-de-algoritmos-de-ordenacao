@@ -1,8 +1,8 @@
+import statistics
+
 import numpy as np
 from src.algoritmos import *
-from src.utils.use_cases import UseCases
 from src.utils.sortValidator import is_sorted
-import statistics
 
 
 class apply_ordinances:
@@ -22,6 +22,7 @@ class apply_ordinances:
     def apply_algorithms_in_arrays(self, i):
 
         for type_array in self.types_array:
+            print(f"************** {type_array.upper()} *****************")
             algorithms_time = {
                 "bubble_sort": [],
                 "insertion_sort": [],
@@ -31,9 +32,9 @@ class apply_ordinances:
                 "counting_sort": [],
             }
 
-            for array in self.use_cases[i][type_array]['array']:
+            for num, array in enumerate(self.use_cases[i][type_array]['array']):
                 ordered_arrays = []
-
+                print(f"----------Array - [{num + 1}] | Size arraya\: {i}:-----------")
                 # Executar ordenações, e adicionar os arrays ordenados em uma lista para futura verificaçao
                 for func in self.funcions_algorithms:
                     ordered_arrays.append(func(np.copy(array)))
