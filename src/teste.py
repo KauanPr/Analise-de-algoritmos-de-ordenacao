@@ -32,4 +32,7 @@ if __name__ == "__main__":
     tables.make_table()
     tables.print_table()
 
+    for table in tables.tables_names:
+        tables.save_table_in_file(table, str(table + '_table.csv'), "../tables/")
+
 
