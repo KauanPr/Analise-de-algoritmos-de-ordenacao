@@ -4,6 +4,7 @@
 import numpy as np
 from utils.use_cases import UseCases
 from utils.table_class import Table
+from utils.graph_creator import create_graph
 from application.applicationOfOrdenances import apply_ordinances
 from algoritmos import *
 import sys
@@ -16,7 +17,7 @@ if __name__ == "__main__":
 
     inc = 100
     fim = 1000
-    stp = 500
+    stp = 100
     use_cases = UseCases(inc, fim, stp)
     #use_cases.show_use_cases()
     app = apply_ordinances(use_cases.list_of_use_cases)
@@ -31,6 +32,11 @@ if __name__ == "__main__":
     tables = Table(use_cases.list_of_use_cases)
     tables.make_table()
     tables.print_table()
+    create_graph(tables, 'random')
+    create_graph(tables, 'reverse')
+    create_graph(tables, 'sorted')
+    create_graph(tables, 'nearly_sorted')
+
 
     for table in tables.tables_names:
         tables.save_table_in_file(table, str(table + '_table.csv'), "../tables/")
