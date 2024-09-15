@@ -34,7 +34,7 @@ class apply_ordinances:
 
             for num, array in enumerate(self.use_cases[i][type_array]['array']):
                 ordered_arrays = []
-                print(f"----------Array - [{num + 1}] | Size arraya\: {i}:-----------")
+                print(f"-----Ordenando Array... - [{num + 1}] | Size array: {i}:-----------")
                 # Executar ordenações, e adicionar os arrays ordenados em uma lista para futura verificaçao
                 for func in self.funcions_algorithms:
                     ordered_arrays.append(func(np.copy(array)))
