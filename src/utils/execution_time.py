@@ -22,7 +22,7 @@ def measure_execution_time(function):
                     wrapper.execution_time = []
 
                 wrapper.execution_time.append(end_time - init_time)  #armazerna o tempo de execução, podendo ser acessado por "funcao".execution_time
-                print(f'Tempo de execução de {function.__name__}: {wrapper.execution_time[-1]:.6} segundos')
+                #print(f'Tempo de execução de {function.__name__}: {wrapper.execution_time[-1]:.6} segundos')
                 wrapper.is_running = False                           # quando função se encerrar, definir como o is_running como False
         else:
             result = function(*args, **kwargs) # executa as funçoes chamadas pela recursao sem medir o tempo
