@@ -8,7 +8,7 @@
 # 3º - dê o comando para executar a main:
 #      python -m src.main inc fim stp
 #      (Opcional: se caso que queira alterar o numero de repetições, utilize: "--rpt valor_desejado")
-# exemplo: python - main 1000 10000 100 --rpt 15
+# exemplo: python -m src.main 1000 10000 100 --rpt 15
 
 import argparse
 import sys
